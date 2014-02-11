@@ -219,6 +219,30 @@ class Variable extends BaseVariable implements \ArrayAccess
     }
 
     /**
+     * Fluent interface helper to create a AfterThan comparison operator.
+     *
+     * @param mixed $variable Right side of comparison operator
+     *
+     * @return Operator\AfterThan
+     */
+    public function afterThan($variable)
+    {
+        return new Operator\AfterThan($this, $this->asVariable($variable));
+    }
+
+    /**
+     * Fluent interface helper to create a BeforeThan comparison operator.
+     *
+     * @param mixed $variable Right side of comparison operator
+     *
+     * @return Operator\BeforeThan
+     */
+    public function beforeThan($variable)
+    {
+        return new Operator\BeforeThan($this, $this->asVariable($variable));
+    }
+
+    /**
      * Fluent interface helper to create a EqualTo comparison operator.
      *
      * @param mixed $variable Right side of comparison operator

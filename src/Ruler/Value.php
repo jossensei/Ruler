@@ -216,6 +216,30 @@ class Value
         return $this->value < $value->getValue();
     }
 
+  /**
+     * After Than comparison.
+     *
+     * @param Value $value Value dateTime string to compare against
+     *
+     * @return boolean
+     */
+    public function afterThan(Value $value)
+    {
+        return strtotime($this->value) > strtotime($value->getValue());
+    }
+
+    /**
+     * Before Than comparison.
+     *
+     * @param Value $value Value dateTime string to compare against
+     *
+     * @return boolean
+     */
+    public function beforeThan(Value $value)
+    {
+        return strtotime($this->value) < strtotime($value->getValue());
+    }
+
     public function add(Value $value)
     {
         if (!is_numeric($this->value) || !is_numeric($value->getValue())) {
