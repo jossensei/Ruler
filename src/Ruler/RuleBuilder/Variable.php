@@ -147,6 +147,30 @@ class Variable extends BaseVariable implements \ArrayAccess
     }
 
     /**
+     * Fluent interface helper to create a InIpRange comparison operator.
+     *
+     * @param mixed $variable Right side of comparison operator
+     *
+     * @return Operator\Contains
+     */
+    public function inIpRange($variable)
+    {
+        return new Operator\InIpRange($this, $this->asVariable($variable));
+    }
+
+    /**
+     * Fluent interface helper to create a NotInIpRange comparison operator.
+     *
+     * @param mixed $variable Right side of comparison operator
+     *
+     * @return Operator\Contains
+     */
+    public function notInIpRange($variable)
+    {
+        return new Operator\NotInIpRange($this, $this->asVariable($variable));
+    }
+
+    /**
      * Fluent interface helper to create a GreaterThan comparison operator.
      *
      * @param mixed $variable Right side of comparison operator
