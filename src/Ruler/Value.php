@@ -89,6 +89,24 @@ class Value
     }
 
     /**
+     * In comparison.
+     *
+     * @param Value $value Value object to compare against
+     *
+     * @return boolean
+     */
+    public function in(Value $value)
+    {
+        if (is_array($value->getValue())) {
+            return in_array($this->value, $value->getValue());
+        } elseif (is_string($value->getValue())) {
+            return strpos($value->getValue(), $this->value) !== false;
+        }
+
+        return false;
+    }
+
+    /**
      * Greater Than comparison.
      *
      * @param Value $value Value object to compare against

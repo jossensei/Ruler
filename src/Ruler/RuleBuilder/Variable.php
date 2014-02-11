@@ -123,6 +123,30 @@ class Variable extends BaseVariable implements \ArrayAccess
     }
 
     /**
+     * Fluent interface helper to create a In comparison operator.
+     *
+     * @param mixed $variable Right side of comparison operator
+     *
+     * @return Operator\Contains
+     */
+    public function in($variable)
+    {
+        return new Operator\In($this, $this->asVariable($variable));
+    }
+
+    /**
+     * Fluent interface helper to create a NotIn comparison operator.
+     *
+     * @param mixed $variable Right side of comparison operator
+     *
+     * @return Operator\Contains
+     */
+    public function notIn($variable)
+    {
+        return new Operator\NotIn($this, $this->asVariable($variable));
+    }
+
+    /**
      * Fluent interface helper to create a GreaterThan comparison operator.
      *
      * @param mixed $variable Right side of comparison operator
