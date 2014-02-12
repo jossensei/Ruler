@@ -16,11 +16,11 @@ use Ruler\Proposition;
 use Ruler\VariableOperand;
 
 /**
- * A AfterThan comparison operator.
+ * A After comparison operator.
  *
  * @author Justin Hileman <justin@shopopensky.com>
  */
-class AfterThan extends VariableOperator implements Proposition
+class After extends VariableOperator implements Proposition
 {
     /**
      * @param Context $context Context with which to evaluate this Proposition
@@ -33,7 +33,7 @@ class AfterThan extends VariableOperator implements Proposition
         /** @var VariableOperand $right */
         list($left, $right) = $this->getOperands();
 
-        return $left->prepareValue($context)->afterThan($right->prepareValue($context));
+        return $left->prepareValue($context)->after($right->prepareValue($context));
     }
 
     protected function getOperandCardinality()

@@ -16,11 +16,11 @@ use Ruler\Proposition;
 use Ruler\VariableOperand;
 
 /**
- * A BeforeThan comparison operator.
+ * A Before comparison operator.
  *
  * @author Justin Hileman <justin@shopopensky.com>
  */
-class BeforeThan extends VariableOperator implements Proposition
+class Before extends VariableOperator implements Proposition
 {
     /**
      * @param Context $context Context with which to evaluate this Proposition
@@ -33,7 +33,7 @@ class BeforeThan extends VariableOperator implements Proposition
         /** @var VariableOperand $right */
         list($left, $right) = $this->getOperands();
 
-        return $left->prepareValue($context)->beforeThan($right->prepareValue($context));
+        return $left->prepareValue($context)->before($right->prepareValue($context));
     }
 
     protected function getOperandCardinality()

@@ -223,7 +223,7 @@ class Value
      *
      * @return boolean
      */
-    public function afterThan(Value $value)
+    public function after(Value $value)
     {
         return strtotime($this->value) > strtotime($value->getValue());
     }
@@ -235,7 +235,7 @@ class Value
      *
      * @return boolean
      */
-    public function beforeThan(Value $value)
+    public function before(Value $value)
     {
         return strtotime($this->value) < strtotime($value->getValue());
     }
